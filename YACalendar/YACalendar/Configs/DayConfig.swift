@@ -10,9 +10,9 @@ import UIKit
 
 open class DayConfig {
     
-    public var textAlignment: NSTextAlignment = .center
+    open var textAlignment: NSTextAlignment = .center
     
-    public let formetter: DateFormatter = {
+    open let formetter: DateFormatter = {
         let formetter = DateFormatter()
         formetter.dateFormat = "d"
         return formetter
