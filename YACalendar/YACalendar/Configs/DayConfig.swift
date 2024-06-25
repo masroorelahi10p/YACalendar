@@ -37,11 +37,11 @@ open class DayConfig {
         }
     }
     
-    public func borderWidth(for state: DayState, indicator: DayIndicator) -> CGFloat {
+    open func borderWidth(for state: DayState, indicator: DayIndicator) -> CGFloat {
         return 0
     }
     
-    public func indicatorColor(for state: DayState, indicator: DayIndicator) -> UIColor {
+    open func indicatorColor(for state: DayState, indicator: DayIndicator) -> UIColor {
         switch (state, indicator) {
         case (_, .selected): return UIColor(displayP3Red: 247 / 255, green: 101 / 255, blue: 48 / 255, alpha: 1.0)
         case (_, .startRange), (_, .endRange), (_, .startRangeFilled): return .black
@@ -50,12 +50,12 @@ open class DayConfig {
         }
     }
     
-    public func eventIndicatorColor(inFuture: Bool) -> UIColor {
+    open func eventIndicatorColor(inFuture: Bool) -> UIColor {
         return inFuture ? UIColor(displayP3Red: 247 / 255, green: 101 / 255, blue: 48 / 255, alpha: 1.0) :
             UIColor(displayP3Red: 188 / 255, green: 188 / 255, blue: 188 / 255, alpha: 1)
     }
     
-    public func fontSize(for calendarType: CalendarType) -> CGFloat {
+    open func fontSize(for calendarType: CalendarType) -> CGFloat {
         switch calendarType {
         case .oneOnOne: return 14
         case .twoOnThree: return 10
@@ -63,7 +63,7 @@ open class DayConfig {
         }
     }
     
-    public func indicatorInset(for type: CalendarType) -> UIEdgeInsets {
+    open func indicatorInset(for type: CalendarType) -> UIEdgeInsets {
         switch type {
         case .oneOnOne: return UIEdgeInsets(top: 9, left: 9, bottom: 9, right: 9)
         case .twoOnThree: return UIEdgeInsets(top: 3, left: 3, bottom: 3, right: 3)
@@ -71,7 +71,7 @@ open class DayConfig {
         }
     }
     
-    public func disableIndicatorForm(rect: CGRect) -> CALayer? {
+    open func disableIndicatorForm(rect: CGRect) -> CALayer? {
         let inset = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
         let crossRect = rect.inset(by: inset)
         
