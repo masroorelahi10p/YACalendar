@@ -18,7 +18,7 @@ open class DayConfig {
         return formetter
     }()
     
-    public func textColor(for state: DayState, indicator: DayIndicator) -> UIColor {
+    open func textColor(for state: DayState, indicator: DayIndicator) -> UIColor {
         switch (state, indicator) {
         case (_, .selected): return .white
         case (_, .startRange), (_, .endRange), (_, .startRangeFilled): return .white
@@ -30,7 +30,7 @@ open class DayConfig {
         }
     }
     
-    public func borderColor(for state: DayState, indicator: DayIndicator) -> UIColor? {
+    open func borderColor(for state: DayState, indicator: DayIndicator) -> UIColor? {
         switch (state, indicator) {
         case (.today, _): return UIColor(displayP3Red: 247 / 255, green: 101 / 255, blue: 48 / 255, alpha: 1.0)
         default: return nil
