@@ -24,10 +24,10 @@ public final class MonthHeaderView: UIView {
     
     func configure(with config: MonthHeaderConfig, monthData: MonthData, calendarType: CalendarType) {
         monthLabel.frame = bounds.inset(by: calendarType.monthTitleInset)
-        monthLabel.textColor = monthData.isCurrentMonth ? config.currentTextColor : config.textColor
+        monthLabel.textColor = monthData.isCurrentMonth ? config.currentTextColor() : config.textColor()
         monthLabel.text = config.formatter.string(from: monthData.startMonthDate)
         monthLabel.font = config.font(for: calendarType)
-        monthLabel.textAlignment = config.textAlignment
+        monthLabel.textAlignment = config.textAlignment()
     
         if config.showSeparator {
             let separatorView = UIView()
