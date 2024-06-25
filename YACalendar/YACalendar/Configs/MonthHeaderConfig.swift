@@ -9,15 +9,19 @@
 import UIKit
 
 open class MonthHeaderConfig {
+    public var showSeparator: Bool
+    public var separatorColor: UIColor
+    public var formatter: DateFormatter
     
-    public var showSeparator: Bool = false
-    public var separatorColor: UIColor = UIColor(displayP3Red: 240 / 255, green: 240 / 255, blue: 240 / 255, alpha: 240 / 255)
-
-    public var formatter: DateFormatter = {
+    public init(showSeparator: Bool = false, separatorColor: UIColor = UIColor(displayP3Red: 240 / 255, green: 240 / 255, blue: 240 / 255, alpha: 240 / 255), formatter: DateFormatter = {
         let formetter = DateFormatter()
         formetter.dateFormat = "MMMM"
         return formetter
-    }()
+    }()) {
+        self.showSeparator = showSeparator
+        self.separatorColor = separatorColor
+        self.formatter = formatter
+    }
     
     open func currentTextColor() -> UIColor {
         return UIColor(displayP3Red: 255 / 255, green: 99 / 255, blue: 0 / 255, alpha: 1.0)
@@ -30,7 +34,7 @@ open class MonthHeaderConfig {
         return .left
     }
     
-    public func font(for calendarType: CalendarType) -> UIFont {
+    open func font(for calendarType: CalendarType) -> UIFont {
         switch calendarType {
         case .oneOnOne: return UIFont.systemFont(ofSize: 18, weight: .medium)
         case .twoOnThree: return UIFont.systemFont(ofSize: 18, weight: .semibold)
